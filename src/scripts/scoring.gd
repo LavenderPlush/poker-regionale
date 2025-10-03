@@ -27,7 +27,6 @@ var cards: Array[Card]
 var cards_rank_sorted: Array[Card]
 var cards_suit_sorted: Array[Card]
 
-
 var hand_type: Hands
 var best_suit: Card.Suits
 var best_rank: int
@@ -44,5 +43,6 @@ func _init(cards_in_hand: Array[Card]) -> void:
 
 func evaluate_hand_type() -> void:
 	cards.sort_custom(Card.rank_sort)
+	print(cards.map(func (card): return str(card.suit) + ", " + str(card.rank)))
 	for hand in Hands:
-		print(cards)
+		pass

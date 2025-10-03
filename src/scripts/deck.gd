@@ -5,9 +5,9 @@ var cards: Array[Card]
 
 func _init() -> void:
 	cards = []
-	for suit in Card.Suits:
-		for i in range(1, 14):
-			var new_card = Card.new(suit, i)
+	for i in range(len(Card.Suits)):
+		for j in range(1, 14):
+			var new_card = Card.new(i, j)
 			cards.append(new_card)
 	
 	cards.shuffle()
