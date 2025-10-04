@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cm8afofxa3x5d"
+path="res://.godot/imported/NPC1_God Damn.wav-697fb72e89186a036b6c98d031a8724d.sample"
+
+[deps]
+
+source_file="res://Assets/NPC1_God Damn.wav"
+dest_files=["res://.godot/imported/NPC1_God Damn.wav-697fb72e89186a036b6c98d031a8724d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

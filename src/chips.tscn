@@ -1,6 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://c1lvskwlnnqul"]
+[gd_scene load_steps=5 format=3 uid="uid://c1lvskwlnnqul"]
 
 [ext_resource type="Script" uid="uid://ckjg1p16iedc2" path="res://chips.gd" id="1_7h553"]
+[ext_resource type="Texture2D" uid="uid://cks0t16vimfv6" path="res://Assets/bluechips.png" id="1_xk8k6"]
+[ext_resource type="Texture2D" uid="uid://ddahult7vfdgr" path="res://Assets/redchips.png" id="3_75q4r"]
+[ext_resource type="Texture2D" uid="uid://y33bjr3n6dpm" path="res://Assets/greenchips.png" id="4_qqmjn"]
 
-[node name="Chips" type="Sprite3D"]
+[node name="Chips" type="Node3D"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 script = ExtResource("1_7h553")
+
+[node name="BlueChips" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2873853, 0, 0.28364405)
+texture_filter = 0
+texture = ExtResource("1_xk8k6")
+
+[node name="RedChips" type="Sprite3D" parent="."]
+texture_filter = 0
+texture = ExtResource("3_75q4r")
+
+[node name="GreenChips" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25806174, 0, 0.32564715)
+texture_filter = 0
+texture = ExtResource("4_qqmjn")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.026223771, 0.4452686)
+text = "BEEP"

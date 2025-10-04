@@ -15,3 +15,5 @@ transform = Transform3D(0.2954423, 0.052094452, 0, -0.04895277, 0.27762493, -0.1
 
 [node name="2" parent="CardHolder" instance=ExtResource("3_am0pq")]
 transform = Transform3D(0.2954423, -0.052094456, 0, 0.04895277, 0.27762496, -0.10260604, 0.01781735, 0.101047225, 0.2819078, -0.075, -0.1, 0.175)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]

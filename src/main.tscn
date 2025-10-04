@@ -102,7 +102,7 @@ texture_filter = 0
 texture = ExtResource("7_5vw27")
 
 [node name="CoffeeCup" type="Sprite3D" parent="."]
-transform = Transform3D(0.30006832, 0, 0.18016382, 0, 0.35, 0, -0.18016382, 0, 0.30006832, -0.41401547, 0.60154253, 0.26248026)
+transform = Transform3D(0.34458256, 0, 0.06134227, 0, 0.35, 0, -0.06134227, 0, 0.34458256, -0.26152915, 0.60154253, 0.07087278)
 texture_filter = 0
 texture = ExtResource("8_kek77")
 

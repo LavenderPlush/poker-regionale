@@ -6,6 +6,7 @@ const npc2_side_sprite: Texture2D = preload("res://Assets/NPC2_Side.png")
 const npc4_side_sprite: Texture2D = preload("res://Assets/NPC4_Side.png")
 
 @onready var card_holder: Node3D = $CardHolder
+@onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
 var hand: Array
 
@@ -34,7 +35,7 @@ func hide_cards():
 
 func show_cards():
 	card_holder.visible = true
-	
+
 func display_cards(cards: Array[Card]):
 	for i in range(hand.size()):
 		hand[i].display(cards[i])

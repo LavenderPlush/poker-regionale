@@ -4,6 +4,7 @@ class_name Player
 @export var id: int
 @export var table_manager: TableManager
 @export var player_visuals: PlayerVisual
+
 @onready var bet: HSlider = $UI/Control/VBoxContainer/Bet
 @onready var money: Label = $UI/Control/Money
 @onready var current_bet: Label = $UI/Control/VBoxContainer/CurrentBet

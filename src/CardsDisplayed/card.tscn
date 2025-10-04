@@ -5,6 +5,7 @@
 
 [node name="Card" type="Sprite3D"]
 transform = Transform3D(0.3, 0, 0, 0, -0.05209446, -0.29544234, 0, 0.29544234, -0.05209446, 0, 0, 0)
+texture_filter = 0
 texture = ExtResource("1_rxsjh")
 hframes = 15
 vframes = 5
