@@ -12,11 +12,11 @@ func _ready() -> void:
 	for pos in position_holder.get_children():
 		positions.append(pos.position)
 
-func show_card():
+func show_card(card_data: Card):
 	assert(current_card < positions.size())
 	var card: CardVisual = CARD.instantiate()
 	# Use card given instead
-	card.display(1, 1)
+	card.display(card_data.suit, card_data.rank)
 	cards_played.append(card)
 	add_child(card)
 	card.position = positions[current_card]
