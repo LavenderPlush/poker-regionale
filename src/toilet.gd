@@ -1,6 +1,16 @@
 extends Node2D
 
 func _ready():
+	
+	var full_house: Array[Card] = [
+		Card.new(Card.Suits.SPADE, 5),
+		Card.new(Card.Suits.HEART, 5),
+		Card.new(Card.Suits.DIAMOND, 5),
+		Card.new(Card.Suits.DIAMOND, 8),
+		Card.new(Card.Suits.HEART, 8),
+	]
+	Scoring.new(full_house)
+	
 	var deck = Deck.new()
 	var example_cards: Array[Card] = [
 		deck.cards[0],
