@@ -1,4 +1,5 @@
 extends Node3D
+class_name TableVisual
 
 const CARD: PackedScene = preload("res://CardsDisplayed/card.tscn")
 
@@ -25,3 +26,5 @@ func show_card(card_data: Card):
 func reset_cards():
 	for card in cards_played:
 		card.queue_free()
+	cards_played = []
+	current_card = 0

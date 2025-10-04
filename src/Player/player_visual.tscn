@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://bemq3k8ud8iqb"]
+
+[ext_resource type="Script" uid="uid://dw66ads4pmino" path="res://Player/player_visual.gd" id="1_l8h54"]
+
+[node name="PlayerVisual" type="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+keep_aspect = 0
+script = ExtResource("1_l8h54")
+
+[node name="CardHolder" type="Node3D" parent="."]
+
+[node name="1" type="Node3D" parent="CardHolder"]
+transform = Transform3D(0.29885843, -0.026146723, 0, 0.024242818, 0.27709672, -0.11238199, 0.009794734, 0.11195435, 0.27815518, -0.07, -0.25786364, -0.682)
+
+[node name="2" type="Node3D" parent="CardHolder"]
+transform = Transform3D(0.29885843, 0.026146723, 0, -0.024242818, 0.27709672, -0.11238199, -0.009794734, 0.11195435, 0.27815518, 0.07, -0.258, -0.682)

@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://oq434q6bsj5d"]
+
+[ext_resource type="Script" uid="uid://dqp5si1u5s7lm" path="res://turn_manager.gd" id="1_u6owk"]
+[ext_resource type="PackedScene" uid="uid://d0rjl25exdrc" path="res://Player/player.tscn" id="2_qjfnw"]
+[ext_resource type="PackedScene" uid="uid://c5j0vfrkd3hpo" path="res://Enemy/enemy.tscn" id="3_2oaxr"]
+[ext_resource type="PackedScene" uid="uid://bjica7mmofcmg" path="res://Enemy/enemy_visual.tscn" id="4_57va0"]
+[ext_resource type="PackedScene" path="res://table_manager.tscn" id="5_jqd3p"]
+
+[node name="TurnManager" type="Node3D"]
+script = ExtResource("1_u6owk")
+hand_size = null
+
+[node name="Players" type="Node" parent="."]
+
+[node name="Player" parent="Players" node_paths=PackedStringArray("table_manager") instance=ExtResource("2_qjfnw")]
+table_manager = NodePath("../../TableManager")
+
+[node name="Enemy" parent="Players" node_paths=PackedStringArray("enemy_visual", "table_manager") instance=ExtResource("3_2oaxr")]
+enemy_visual = NodePath("../../Enemies/Enemy2")
+table_manager = NodePath("../../TableManager")
+id = 1
+
+[node name="Enemy2" parent="Players" node_paths=PackedStringArray("enemy_visual", "table_manager") instance=ExtResource("3_2oaxr")]
+enemy_visual = NodePath("../../Enemies/Enemy")
+table_manager = NodePath("../../TableManager")
+id = 2
+
+[node name="Enemy3" parent="Players" node_paths=PackedStringArray("enemy_visual", "table_manager") instance=ExtResource("3_2oaxr")]
+enemy_visual = NodePath("../../Enemies/Enemy3")
+table_manager = NodePath("../../TableManager")
+id = 3
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("4_57va0")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0.5187818, -1.022917)
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource("4_57va0")]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -0.70164907, 0.54549, -0.51652175)
+npc_texture = 1
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource("4_57va0")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0.7445991, 0.53259534, -0.64856094)
+flip_h = true
+flip_sprite = true
+npc_texture = 1
+
+[node name="TableManager" parent="." instance=ExtResource("5_jqd3p")]

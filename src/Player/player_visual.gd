@@ -1,25 +1,25 @@
 extends Camera3D
+class_name PlayerVisual
 
 const CARD: PackedScene = preload("uid://dq5coxtle62he")
 
-@onready var position_holder: Node = $PositionHolder
+@onready var card_holder: Node3D = $CardHolder
 
-var positions: Array[Node3D] = []
 var hand: Array = []
 
 func _ready() -> void:
-	for c in position_holder.get_children():
-		positions.append(c)
+	for c in card_holder.get_children():
+		hand.append(c)
 
-func draw_cards(cards: Array[Card]):
-	clear_hand()
-	for c in range(positions.size()):
-		var card: CardVisual = CARD.instantiate()
-		card.display(cards[c].suit, cards[c].rank)
-		hand.append(card)
-		add_child(card)
-		card.position = positions[c].position
-		card.rotation = positions[c].rotation
+func hide_cards():
+	card_holder.visible = false
+
+func show_cards():
+	card_holder.visible = true
+	
+func display_cards(cards: Array[Card]):
+	for i in range(hand.size()):
+		hand[i].display(cards[i])
 	
 func clear_hand():
 	for c in hand:

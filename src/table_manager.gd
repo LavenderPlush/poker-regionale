@@ -1,17 +1,34 @@
 extends Node3D
 class_name TableManager
 
-@onready var players = $Players
+@export var table_visual: TableVisual
 
-var active_player_ids: Array[int] = []
 var player_chips: Dictionary = {}
 var table_chips: Dictionary = {}
 
+var cards_on_table: Array = []
+
 var current_bet: int = 0
 
+@onready var deck: Deck = Deck.new()
 
-func fold(player_id: int) -> void:
-	active_player_ids.remove_at(active_player_ids.find(player_id))
+func turn_cards(_amount: int) -> void:
+	for i in range(_amount):
+		var card = deck.draw()
+		cards_on_table.append(card)
+		table_visual.show_card(card)
+		
+func evaluate_score(hand: Array):
+	var all_cards = hand.duplicate()
+	all_cards.append_array(cards_on_table)
+	
+	
+	
+	
+
+func fold(_player_id: int) -> void:
+	# active_player_ids.remove_at(active_player_ids.find(player_id))
+	pass
 
 
 func raise(player_id: int, amount: int) -> void:
