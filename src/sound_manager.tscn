@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://chaye0ndc2ke7"]
+
+[ext_resource type="Script" uid="uid://e233ud4mvrgj" path="res://sound_manager.gd" id="1_22ksp"]
+[ext_resource type="AudioStream" uid="uid://c0kuih1cjfubv" path="res://Assets/PokerRegionale.mp3" id="1_mdjn0"]
+[ext_resource type="AudioStream" uid="uid://c7r6mfpx7bow7" path="res://Assets/si-103429.mp3" id="2_22ksp"]
+
+[node name="SoundManager" type="Node3D"]
+script = ExtResource("1_22ksp")
+
+[node name="BGMPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_mdjn0")
+bus = &"BGM"
+parameters/looping = true
+
+[node name="VoicePlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_22ksp")
+
+[connection signal="finished" from="VoicePlayer" to="." method="_on_voice_player_finished"]
