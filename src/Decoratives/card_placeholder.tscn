@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://b8ov37bxcaql5"]
+
+[node name="Card" type="CSGBox3D"]
+size = Vector3(0.07, 0.01, 0.14)
