@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbna0kehqik3t"
-path.bptc="res://.godot/imported/poker_cards.png-18a332d3b63d70ac549e5986732bcaf5.bptc.ctex"
+uid="uid://buhm2heujo3c8"
+path.s3tc="res://.godot/imported/pizza.png-29f16bdde40e9b33a89e0f87abef00c2.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,13 +11,13 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/poker_cards.png"
-dest_files=["res://.godot/imported/poker_cards.png-18a332d3b63d70ac549e5986732bcaf5.bptc.ctex"]
+source_file="res://Assets/pizza.png"
+dest_files=["res://.godot/imported/pizza.png-29f16bdde40e9b33a89e0f87abef00c2.s3tc.ctex"]
 
 [params]
 
 compress/mode=2
-compress/high_quality=true
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
