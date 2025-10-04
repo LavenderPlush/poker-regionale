@@ -1,19 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://oq434q6bsj5d"]
+[gd_scene load_steps=7 format=3 uid="uid://oq434q6bsj5d"]
 
 [ext_resource type="Script" uid="uid://dqp5si1u5s7lm" path="res://turn_manager.gd" id="1_u6owk"]
 [ext_resource type="PackedScene" uid="uid://d0rjl25exdrc" path="res://Player/player.tscn" id="2_qjfnw"]
 [ext_resource type="PackedScene" uid="uid://c5j0vfrkd3hpo" path="res://Enemy/enemy.tscn" id="3_2oaxr"]
 [ext_resource type="PackedScene" uid="uid://bjica7mmofcmg" path="res://Enemy/enemy_visual.tscn" id="4_57va0"]
-[ext_resource type="PackedScene" path="res://table_manager.tscn" id="5_jqd3p"]
+[ext_resource type="PackedScene" uid="uid://c6lpv1j33d8ng" path="res://table_manager.tscn" id="5_jqd3p"]
+[ext_resource type="PackedScene" uid="uid://bemq3k8ud8iqb" path="res://Player/player_visual.tscn" id="6_2oaxr"]
 
 [node name="TurnManager" type="Node3D"]
 script = ExtResource("1_u6owk")
-hand_size = null
 
 [node name="Players" type="Node" parent="."]
 
-[node name="Player" parent="Players" node_paths=PackedStringArray("table_manager") instance=ExtResource("2_qjfnw")]
+[node name="Player" parent="Players" node_paths=PackedStringArray("table_manager", "player_visuals") instance=ExtResource("2_qjfnw")]
 table_manager = NodePath("../../TableManager")
+player_visuals = NodePath("../../Player")
 
 [node name="Enemy" parent="Players" node_paths=PackedStringArray("enemy_visual", "table_manager") instance=ExtResource("3_2oaxr")]
 enemy_visual = NodePath("../../Enemies/Enemy2")
@@ -46,3 +47,6 @@ flip_sprite = true
 npc_texture = 1
 
 [node name="TableManager" parent="." instance=ExtResource("5_jqd3p")]
+
+[node name="Player" parent="." instance=ExtResource("6_2oaxr")]
+transform = Transform3D(1, 0, 0, 0, 0.9510565, 0.30901697, 0, -0.30901697, 0.9510565, 0, 1.1, 1.3)

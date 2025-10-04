@@ -23,6 +23,7 @@ func _ready() -> void:
 	for player in active_players:
 		table_manager.add_player(player.id)
 		player.end_turn.connect(_on_end_turn)
+	_new_round()
 
 func _new_round() -> void:
 	_evaluate_players()

@@ -30,6 +30,8 @@ func show_cards():
 	card_holder.visible = true
 	
 func display_cards(cards: Array[Card]):
+	if cards.size() == 0:
+		return
 	for i in range(hand.size()):
 		hand[i].display(cards[i])
 	

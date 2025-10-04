@@ -54,7 +54,6 @@ func check(_player_id: int) -> void:
 
 func call_bet(player_id: int) -> void:
 	var difference = current_bet - table_chips[player_id]
-	
 	bet(player_id, difference)
 
 
