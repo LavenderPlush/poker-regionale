@@ -2,6 +2,7 @@ extends Sprite3D
 
 const npc1_front_sprite: Texture2D = preload("res://Assets/NPC1_Front.png")
 const npc2_side_sprite: Texture2D = preload("res://Assets/NPC2_Side.png")
+const npc4_side_sprite: Texture2D = preload("res://Assets/NPC4_Side.png")
 
 @onready var card_holder: Node3D = $CardHolder
 
@@ -9,12 +10,14 @@ var hand: Array
 
 const npc_textures = [
 	npc1_front_sprite,
-	npc2_side_sprite
+	npc2_side_sprite,
+	npc4_side_sprite,
 ]
 
 enum NPC {
 	NPC1_front,
-	NPC2_side
+	NPC2_side,
+	NPC4_side,
 }
 
 @export var flip_sprite: bool = false
