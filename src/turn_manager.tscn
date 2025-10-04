@@ -35,14 +35,17 @@ id = 3
 
 [node name="Enemy" parent="Enemies" instance=ExtResource("4_57va0")]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0.5187818, -1.022917)
+texture_filter = 0
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource("4_57va0")]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -0.70164907, 0.54549, -0.51652175)
+texture_filter = 0
 npc_texture = 1
 
 [node name="Enemy3" parent="Enemies" instance=ExtResource("4_57va0")]
 transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0.7445991, 0.53259534, -0.64856094)
 flip_h = true
+texture_filter = 0
 flip_sprite = true
 npc_texture = 1
 

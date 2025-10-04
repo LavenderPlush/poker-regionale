@@ -1,13 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://gshkfkveg71n"]
+[gd_scene load_steps=12 format=3 uid="uid://gshkfkveg71n"]
 
 [ext_resource type="Material" uid="uid://dcsb7mtpd7t1m" path="res://Assets/chair_material.tres" id="1_ig7tw"]
-[ext_resource type="Texture2D" uid="uid://cvswt1dw75f32" path="res://Assets/TableSurfaceFinal-export.png" id="1_kek77"]
-[ext_resource type="PackedScene" uid="uid://bh4ihxywrl2yh" path="res://CardsDisplayed/table_cards.tscn" id="2_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://cw558trlr1rwi" path="res://Assets/TableSurfaceFinal.png" id="1_lquwl"]
 [ext_resource type="Texture2D" uid="uid://buhm2heujo3c8" path="res://Assets/pizza.png" id="2_7mycd"]
 [ext_resource type="PackedScene" uid="uid://bemq3k8ud8iqb" path="res://Player/player_visual.tscn" id="3_h2yge"]
+[ext_resource type="Texture2D" uid="uid://lnawd32xm3w2" path="res://Assets/italian-flag.png" id="7_5vw27"]
 [ext_resource type="PackedScene" uid="uid://chaye0ndc2ke7" path="res://sound_manager.tscn" id="7_272bh"]
-[ext_resource type="Texture2D" uid="uid://lnawd32xm3w2" path="res://Assets/italian-flag.png" id="8_5vw27"]
-[ext_resource type="Texture2D" uid="uid://00ulhamt746t" path="res://Assets/CoffeCup.png" id="9_4c57u"]
+[ext_resource type="PackedScene" uid="uid://oq434q6bsj5d" path="res://turn_manager.tscn" id="8_5vw27"]
+[ext_resource type="Texture2D" uid="uid://00ulhamt746t" path="res://Assets/CoffeCup.png" id="8_kek77"]
 [ext_resource type="Texture2D" uid="uid://dwdhbk0dqw3jy" path="res://Assets/ashtray.png" id="9_kek77"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2yge"]
@@ -31,12 +31,12 @@ operation = 2
 size = Vector3(2.9, 1.9, 2.9)
 
 [node name="Table" type="Sprite3D" parent="Room"]
-transform = Transform3D(1.7989035, 0.06281909, -2.7459097e-09, 0, -7.86805e-08, -1.8, -0.06281909, 1.7989035, -7.863257e-08, 0, 0.36072838, 0)
+transform = Transform3D(0.099939086, -0.0034899495, 1.5255054e-10, 0, -4.371139e-09, -0.1, 0.0034899495, 0.099939086, -4.3684762e-09, 0, 0.36072838, 0)
 texture_filter = 0
-texture = ExtResource("1_kek77")
+texture = ExtResource("1_lquwl")
 
 [node name="Pizza" type="Sprite3D" parent="Room"]
-transform = Transform3D(0.4723172, 0.16406241, -7.171396e-09, 0, -2.1855694e-08, -0.5, -0.16406241, 0.4723172, -2.064564e-08, -0.5088151, 0.43966866, 0.20928568)
+transform = Transform3D(0.4, 0, 0, 0, -1.7484556e-08, -0.4, 0, 0.4, -1.7484556e-08, -0.43264267, 0.58948493, 0.49553785)
 texture_filter = 0
 texture = ExtResource("2_7mycd")
 
@@ -91,39 +91,22 @@ material = ExtResource("1_ig7tw")
 [node name="Player" parent="." instance=ExtResource("3_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 0.9510565, 0.30901697, 0, -0.30901697, 0.9510565, 0, 1.1, 1.3)
 
-[node name="Enemy" parent="." instance=ExtResource("4_1bvp3")]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0.5187818, -1.022917)
-texture_filter = 0
-
-[node name="Enemy2" parent="." instance=ExtResource("4_1bvp3")]
-transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -0.70164907, 0.54549, -0.51652175)
-texture_filter = 0
-npc_texture = 1
-
-[node name="Enemy3" parent="." instance=ExtResource("4_1bvp3")]
-transform = Transform3D(0.56568545, 0, -0.56568545, 0, 0.8, 0, 0.56568545, 0, 0.56568545, 0.7445991, 0.53259534, -0.64856094)
-texture_filter = 0
-npc_texture = 2
-
-[node name="CardHolder" parent="Enemy3" index="0"]
-transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
-
 [node name="SoundManager" parent="." instance=ExtResource("7_272bh")]
 
-[node name="ItalianFlag" type="Sprite3D" parent="."]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0.8502128, -1.4225699)
-modulate = Color(0.33362564, 0.33362567, 0.33362564, 1)
-texture_filter = 0
-texture = ExtResource("8_5vw27")
+[node name="TurnManager" parent="." instance=ExtResource("8_5vw27")]
 
-[node name="Coffee" type="Sprite3D" parent="."]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.42689535, 0.591379, 0.19493246)
+[node name="ItalianFlag" type="Sprite3D" parent="."]
+transform = Transform3D(2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, 0, 0.915182, -1.259783)
+modulate = Color(0.29513082, 0.29513085, 0.29513085, 1)
 texture_filter = 0
-texture = ExtResource("9_4c57u")
+texture = ExtResource("7_5vw27")
+
+[node name="CoffeeCup" type="Sprite3D" parent="."]
+transform = Transform3D(0.30006832, 0, 0.18016382, 0, 0.35, 0, -0.18016382, 0, 0.30006832, -0.41401547, 0.60154253, 0.26248026)
+texture_filter = 0
+texture = ExtResource("8_kek77")
 
 [node name="Ashtray" type="Sprite3D" parent="."]
-transform = Transform3D(0.39897338, 0, -0.20813511, 0, 0.45, 0, 0.20813511, 0, 0.39897338, 0.5536953, 0.40650827, 0.1061908)
+transform = Transform3D(0.457947, 0, -0.20071016, 0, 0.5, 0, 0.20071016, 0, 0.457947, 0.56022567, 0.45792395, 0.1829058)
 texture_filter = 0
 texture = ExtResource("9_kek77")
-
-[editable path="Enemy3"]

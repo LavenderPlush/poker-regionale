@@ -33,7 +33,7 @@ func display_cards(cards: Array[Card]):
 	if cards.size() == 0:
 		return
 	for i in range(hand.size()):
-		hand[i].display(cards[i])
+		pass #hand[i].display(cards[i])
 	
 func clear_hand():
 	for c in hand:
