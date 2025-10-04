@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://gshkfkveg71n"]
+[gd_scene load_steps=10 format=3 uid="uid://gshkfkveg71n"]
 
 [ext_resource type="Material" uid="uid://dcsb7mtpd7t1m" path="res://Assets/chair_material.tres" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://cw558trlr1rwi" path="res://Assets/TableSurfaceFinal.png" id="1_lquwl"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://buhm2heujo3c8" path="res://Assets/pizza.png" id="2_7mycd"]
 [ext_resource type="PackedScene" uid="uid://bemq3k8ud8iqb" path="res://Player/player.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://bjica7mmofcmg" path="res://Enemy/enemy.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://chaye0ndc2ke7" path="res://sound_manager.tscn" id="7_272bh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2yge"]
 albedo_color = Color(0.6, 0.3756, 0.204, 1)
@@ -101,3 +102,5 @@ transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70
 flip_h = true
 flip_sprite = true
 npc_texture = 1
+
+[node name="SoundManager" parent="." instance=ExtResource("7_272bh")]
