@@ -27,11 +27,12 @@ func _ready() -> void:
 
 func _new_round() -> void:
 	_evaluate_players()
+	table_manager.deck = Deck.new()
+	_distribute_cards()
 	big_blind_player = (big_blind_player + 1)
 	if big_blind_player >= active_players.size():
 		big_blind_player = big_blind_player % active_players.size()
-	table_manager.deck = Deck.new()
-	_distribute_cards()
+	player_raised = big_blind_player
 	_next_turn()
 	
 func _evaluate_players():

@@ -53,6 +53,7 @@ npc_texture = 2
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
 
 [node name="TableManager" parent="." instance=ExtResource("5_jqd3p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.003081262, 0)
 
 [node name="Player" parent="." instance=ExtResource("6_2oaxr")]
 transform = Transform3D(1, 0, 0, 0, 0.9510565, 0.30901697, 0, -0.30901697, 0.9510565, 0, 1.1, 1.3)

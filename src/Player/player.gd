@@ -21,18 +21,18 @@ func _process(_delta: float) -> void:
 	money.text = str(table_manager.player_chips[id]) + "€"
 
 func play_turn():
-	for button in buttons:
+	for button in buttons.get_children():
 		button.disabled = false
 
 func _end_turn():
-	for button in buttons:
+	for button in buttons.get_children():
 		button.disabled = true
 	end_turn.emit()
 
 func draw_cards(amount: int):
 	for i in range(amount):
 		hand.push_back(table_manager.deck.draw())
-	player_visuals.display_cards(hand)
+	player_visuals.display_cards(hand.duplicate())
 
 # Signals
 func _on_call_pressed() -> void:
