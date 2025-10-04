@@ -8,4 +8,5 @@ transform = Transform3D(0.3, 0, 0, 0, -0.05209446, -0.29544234, 0, 0.29544234, -
 texture = ExtResource("1_rxsjh")
 hframes = 15
 vframes = 5
+frame = 60
 script = ExtResource("1_p0yyc")

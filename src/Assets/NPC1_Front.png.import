@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbna0kehqik3t"
-path.bptc="res://.godot/imported/poker_cards.png-18a332d3b63d70ac549e5986732bcaf5.bptc.ctex"
+uid="uid://dnwwdsjl8a5wv"
+path.bptc="res://.godot/imported/NPC1_Front.png-e709ba940372131d6bf10335de04033a.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/poker_cards.png"
-dest_files=["res://.godot/imported/poker_cards.png-18a332d3b63d70ac549e5986732bcaf5.bptc.ctex"]
+source_file="res://Assets/NPC1_Front.png"
+dest_files=["res://.godot/imported/NPC1_Front.png-e709ba940372131d6bf10335de04033a.bptc.ctex"]
 
 [params]
 
