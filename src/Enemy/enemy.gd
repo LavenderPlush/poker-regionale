@@ -1,43 +1,23 @@
-extends Sprite3D
+extends Node3D
 
-const npc1_front_sprite: Texture2D = preload("res://Assets/NPC1_Front.png")
-const npc2_side_sprite: Texture2D = preload("res://Assets/NPC2_Side.png")
-const npc4_side_sprite: Texture2D = preload("res://Assets/NPC4_Side.png")
+@export var enemy_visual: EnemyVisual
+@export var table_manager: TableManager
 
-@onready var card_holder: Node3D = $CardHolder
+signal end_turn
 
-var hand: Array
+var hand: Array[Card]
+@export var id: int
 
-const npc_textures = [
-	npc1_front_sprite,
-	npc2_side_sprite,
-	npc4_side_sprite,
-]
+func play_turn():
+	table_manager.check(id)
+	await get_tree().create_timer(2).timeout
+	end_turn.emit()
 
-enum NPC {
-	NPC1_front,
-	NPC2_side,
-	NPC4_side,
-}
+func fold():
+	enemy_visual.hide_cards()
+	table_manager.fold(id)
 
-@export var flip_sprite: bool = false
-@export var npc_texture: NPC = NPC.NPC1_front
-
-func _ready() -> void:
-	texture = npc_textures[npc_texture]
-	hand = card_holder.get_children()
-	show_cardbacks()
-
-func hide_cards():
-	card_holder.visible = false
-
-func show_cards():
-	card_holder.visible = true
-	
-func display_cards(cards: Array[Card]):
-	for i in range(hand.size()):
-		hand[i].display(cards[i])
-
-func show_cardbacks():
-	for card in hand:
-		card.display(1,4)
+func draw_cards(amount: int):
+	for i in range(amount):
+		hand.append(table_manager.deck.draw())
+	enemy_visual.show_cardbacks()

@@ -34,6 +34,8 @@ var cards_suit_sorted: Array[Card]
 var hand_type: Hands
 var best_suit: Card.Suits
 var best_rank: int
+var score: int = 0
+
 
 func get_score_function(hand: Hands) -> Array[Array]:
 	match hand:
@@ -240,6 +242,8 @@ func _init(cards_in_hand: Array[Card]) -> void:
 	best_rank = get_best_rank(final_hand)
 	print("Found best suit: " + str(best_suit))
 	print("Found best rank: " + str(best_rank))
+	
+	score = (20 - hand_type) * 1000 + best_suit * 100 + best_rank
 
 func evaluate_hand_type() -> Array[Array]:
 	print(cards.map(func (card): return str(card.suit) + ", " + str(card.rank)))

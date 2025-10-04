@@ -1,19 +1,17 @@
 extends Camera3D
+class_name PlayerVisual
 
 const CARD: PackedScene = preload("uid://dq5coxtle62he")
 
-@onready var position_holder: Node = $PositionHolder
+@onready var card_holder: Node3D = $CardHolder
+@onready var rotation_goal = rotation
 
-var positions: Array[Node3D] = []
 var hand: Array = []
 const FIXED_X_DEG: float = deg_to_rad(-18.0)
 
 func _ready() -> void:
-	for c in position_holder.get_children():
-		positions.append(c)
-	print(rotation)
-
-@onready var rotation_goal = rotation
+	for c in card_holder.get_children():
+		hand.append(c)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -25,15 +23,17 @@ func _input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	rotation = rotation.move_toward(rotation_goal, delta * (rotation - rotation_goal).length() * 10)
 
-func draw_cards(cards: Array[Card]):
-	clear_hand()
-	for c in range(positions.size()):
-		var card: CardVisual = CARD.instantiate()
-		card.display(cards[c].suit, cards[c].rank)
-		hand.append(card)
-		add_child(card)
-		card.position = positions[c].position
-		card.rotation = positions[c].rotation
+func hide_cards():
+	card_holder.visible = false
+
+func show_cards():
+	card_holder.visible = true
+	
+func display_cards(cards: Array[Card]):
+	if cards.size() == 0:
+		return
+	for i in range(hand.size()):
+		hand[i].display(cards[i])
 	
 func clear_hand():
 	for c in hand:

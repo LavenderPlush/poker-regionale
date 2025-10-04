@@ -1,17 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjica7mmofcmg"]
+[gd_scene load_steps=2 format=3 uid="uid://c5j0vfrkd3hpo"]
 
-[ext_resource type="Texture2D" uid="uid://dnwwdsjl8a5wv" path="res://Assets/NPC1_Front.png" id="1_2pb1h"]
-[ext_resource type="Script" uid="uid://bp4us5ijenp4e" path="res://Enemy/enemy.gd" id="2_px1sc"]
-[ext_resource type="PackedScene" uid="uid://dq5coxtle62he" path="res://CardsDisplayed/card.tscn" id="3_am0pq"]
+[ext_resource type="Script" uid="uid://sh1r2wtw8ik0" path="res://Enemy/enemy.gd" id="2_px1sc"]
 
-[node name="Enemy" type="Sprite3D"]
-texture = ExtResource("1_2pb1h")
+[node name="Enemy" type="Node3D"]
 script = ExtResource("2_px1sc")
-
-[node name="CardHolder" type="Node3D" parent="."]
-
-[node name="1" parent="CardHolder" instance=ExtResource("3_am0pq")]
-transform = Transform3D(0.2954423, 0.052094452, 0, -0.04895277, 0.27762493, -0.10260603, -0.01781735, 0.10104721, 0.28190777, 0, -0.1, 0.159)
-
-[node name="2" parent="CardHolder" instance=ExtResource("3_am0pq")]
-transform = Transform3D(0.2954423, -0.052094456, 0, 0.04895277, 0.27762496, -0.10260604, 0.01781735, 0.101047225, 0.2819078, -0.075, -0.1, 0.175)

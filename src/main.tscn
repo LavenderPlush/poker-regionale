@@ -4,8 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cvswt1dw75f32" path="res://Assets/TableSurfaceFinal-export.png" id="1_kek77"]
 [ext_resource type="PackedScene" uid="uid://bh4ihxywrl2yh" path="res://CardsDisplayed/table_cards.tscn" id="2_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://buhm2heujo3c8" path="res://Assets/pizza.png" id="2_7mycd"]
-[ext_resource type="PackedScene" uid="uid://bemq3k8ud8iqb" path="res://Player/player.tscn" id="3_h2yge"]
-[ext_resource type="PackedScene" uid="uid://bjica7mmofcmg" path="res://Enemy/enemy.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://bemq3k8ud8iqb" path="res://Player/player_visual.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://chaye0ndc2ke7" path="res://sound_manager.tscn" id="7_272bh"]
 [ext_resource type="Texture2D" uid="uid://lnawd32xm3w2" path="res://Assets/italian-flag.png" id="8_5vw27"]
 [ext_resource type="Texture2D" uid="uid://00ulhamt746t" path="res://Assets/CoffeCup.png" id="9_4c57u"]
@@ -88,9 +87,6 @@ material = ExtResource("1_ig7tw")
 transform = Transform3D(0.6427876, 0, -0.7660443, 0, 1, 0, 0.7660443, 0, 0.6427876, 0.8658333, 0.2, -0.8010464)
 size = Vector3(0.5, 0.8, 0.05)
 material = ExtResource("1_ig7tw")
-
-[node name="TableCards" parent="." instance=ExtResource("2_0xm2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2406094, 0.40611082, 0.00096544623)
 
 [node name="Player" parent="." instance=ExtResource("3_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 0.9510565, 0.30901697, 0, -0.30901697, 0.9510565, 0, 1.1, 1.3)

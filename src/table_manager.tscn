@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6lpv1j33d8ng"]
+
+[ext_resource type="Script" uid="uid://byjoqc1x4714l" path="res://table_manager.gd" id="1_77r4b"]
+[ext_resource type="PackedScene" uid="uid://bh4ihxywrl2yh" path="res://CardsDisplayed/table_cards.tscn" id="2_g5xba"]
+
+[node name="TableManager" type="Node3D" node_paths=PackedStringArray("table_visual")]
+script = ExtResource("1_77r4b")
+table_visual = NodePath("TableCards")
+
+[node name="TableCards" parent="." instance=ExtResource("2_g5xba")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2406094, 0.40611082, 0.00096544623)

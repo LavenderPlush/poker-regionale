@@ -1,16 +1,72 @@
-[gd_scene load_steps=2 format=3 uid="uid://bemq3k8ud8iqb"]
+[gd_scene load_steps=2 format=3 uid="uid://d0rjl25exdrc"]
 
-[ext_resource type="Script" uid="uid://dw66ads4pmino" path="res://Player/player_visual.gd" id="1_l8h54"]
+[ext_resource type="Script" uid="uid://my77bq50qri0" path="res://Player/player.gd" id="1_l8h54"]
 
-[node name="Player" type="Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
-keep_aspect = 0
+[node name="Player" type="Node3D"]
 script = ExtResource("1_l8h54")
 
-[node name="PositionHolder" type="Node" parent="."]
+[node name="UI" type="CanvasLayer" parent="."]
 
-[node name="1" type="Node3D" parent="PositionHolder"]
-transform = Transform3D(0.29885843, -0.026146723, 0, 0.024242818, 0.27709672, -0.11238199, 0.009794734, 0.11195435, 0.27815518, -0.07, -0.25786364, -0.682)
+[node name="Control" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="2" type="Node3D" parent="PositionHolder"]
-transform = Transform3D(0.29885843, 0.026146723, 0, -0.024242818, 0.27709672, -0.11238199, -0.009794734, 0.11195435, 0.27815518, 0.07, -0.258, -0.682)
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Control"]
+layout_mode = 0
+offset_left = 885.0
+offset_top = 555.0
+offset_right = 1138.0
+offset_bottom = 633.0
+
+[node name="CurrentBet" type="Label" parent="UI/Control/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "0"
+
+[node name="Buttons" type="HBoxContainer" parent="UI/Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Call" type="Button" parent="UI/Control/VBoxContainer/Buttons"]
+layout_mode = 2
+size_flags_vertical = 0
+disabled = true
+text = "Chiamo"
+
+[node name="Check" type="Button" parent="UI/Control/VBoxContainer/Buttons"]
+layout_mode = 2
+size_flags_vertical = 0
+disabled = true
+text = "Busso"
+
+[node name="Fold" type="Button" parent="UI/Control/VBoxContainer/Buttons"]
+layout_mode = 2
+size_flags_vertical = 0
+disabled = true
+text = "Passo"
+
+[node name="Raise" type="Button" parent="UI/Control/VBoxContainer/Buttons"]
+layout_mode = 2
+disabled = true
+text = "Rilancio"
+
+[node name="Bet" type="HSlider" parent="UI/Control/VBoxContainer"]
+layout_mode = 2
+min_value = 5.0
+value = 5.0
+
+[node name="Money" type="Label" parent="UI/Control"]
+layout_mode = 0
+offset_left = 1087.0
+offset_top = 12.0
+offset_right = 1127.0
+offset_bottom = 49.0
+theme_override_font_sizes/font_size = 27
+text = "0"
+
+[connection signal="pressed" from="UI/Control/VBoxContainer/Buttons/Call" to="." method="_on_call_pressed"]
+[connection signal="pressed" from="UI/Control/VBoxContainer/Buttons/Check" to="." method="_on_check_pressed"]
+[connection signal="pressed" from="UI/Control/VBoxContainer/Buttons/Fold" to="." method="_on_fold_pressed"]
+[connection signal="pressed" from="UI/Control/VBoxContainer/Buttons/Raise" to="." method="_on_raise_pressed"]
+[connection signal="value_changed" from="UI/Control/VBoxContainer/Bet" to="." method="_on_bet_value_changed"]
