@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://c0kuih1cjfubv" path="res://Assets/PokerRegionale.mp3" id="1_mdjn0"]
 [ext_resource type="AudioStream" uid="uid://n2tee2h5hjnn" path="res://Assets/siciliandealer1.wav" id="3_22ksp"]
 
-[node name="SoundManager" type="Node3D"]
+[node name="SoundManager" type="Node"]
 script = ExtResource("1_22ksp")
 
 [node name="BGMPlayer" type="AudioStreamPlayer" parent="."]

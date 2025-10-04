@@ -23,7 +23,12 @@ func _ready() -> void:
 	for player in active_players:
 		table_manager.add_player(player.id)
 		player.end_turn.connect(_on_end_turn)
+	SoundManager.get_intro_player().finished.connect(_on_intro_monologue_finished)
+	
 	_new_round()
+
+func _on_intro_monologue_finished() -> void:
+	pass #_new_round()
 
 func _new_round() -> void:
 	_evaluate_players()
