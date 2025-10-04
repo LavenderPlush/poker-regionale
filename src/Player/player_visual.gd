@@ -10,14 +10,12 @@ var hand: Array = []
 func _ready() -> void:
 	for c in position_holder.get_children():
 		positions.append(c)
-	draw_cards([])
 
-func draw_cards(_cards: Array = []):
+func draw_cards(cards: Array[Card]):
 	clear_hand()
 	for c in range(positions.size()):
 		var card: CardVisual = CARD.instantiate()
-		# Fit this to card definition
-		card.display(c, c)
+		card.display(cards[c].suit, cards[c].rank)
 		hand.append(card)
 		add_child(card)
 		card.position = positions[c].position
