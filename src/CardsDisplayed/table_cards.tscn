@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh4ihxywrl2yh"]
+
+[ext_resource type="Script" uid="uid://cw0kgswk8nxaq" path="res://CardsDisplayed/table_cards.gd" id="1_u6670"]
+[ext_resource type="PackedScene" uid="uid://dsv7ljmwr88et" path="res://Decoratives/deck.tscn" id="2_eivna"]
+
+[node name="TableCards" type="Node3D"]
+script = ExtResource("1_u6670")
+
+[node name="Deck" parent="." instance=ExtResource("2_eivna")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0.02, 0)
+
+[node name="CardPositions" type="Node3D" parent="."]
+
+[node name="1" type="Node3D" parent="CardPositions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.007461965, 0)
+
+[node name="2" type="Node3D" parent="CardPositions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, 0.007461965, 0)
+
+[node name="3" type="Node3D" parent="CardPositions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.007461965, 0)
+
+[node name="4" type="Node3D" parent="CardPositions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0.007461965, 0)
+
+[node name="5" type="Node3D" parent="CardPositions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0.007461965, 0)
+
+[node name="6" type="Node3D" parent="CardPositions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 0.007461965, 0)

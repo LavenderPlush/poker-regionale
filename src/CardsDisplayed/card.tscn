@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq5coxtle62he"]
+
+[ext_resource type="Script" uid="uid://dkv72hcv1v7mw" path="res://CardsDisplayed/card_visual.gd" id="1_p0yyc"]
+[ext_resource type="Texture2D" uid="uid://dbna0kehqik3t" path="res://Assets/poker_cards.png" id="1_rxsjh"]
+
+[node name="Card" type="Sprite3D"]
+transform = Transform3D(0.3, 0, 0, 0, -0.05209446, -0.29544234, 0, 0.29544234, -0.05209446, 0, 0, 0)
+texture = ExtResource("1_rxsjh")
+hframes = 15
+vframes = 5
+script = ExtResource("1_p0yyc")
