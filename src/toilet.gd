@@ -11,3 +11,4 @@ func _ready():
 		deck.cards[50],
 	]
 	Scoring.new(example_cards)
+	
