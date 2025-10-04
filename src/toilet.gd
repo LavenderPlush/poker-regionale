@@ -12,3 +12,13 @@ func _ready():
 	]
 	Scoring.new(example_cards)
 	
+	var straight_flush: Array[Card] = [
+		Card.new(Card.Suits.HEART, 10),
+		Card.new(Card.Suits.HEART, 11),
+		Card.new(Card.Suits.HEART, 12),
+		Card.new(Card.Suits.HEART, 13),
+		Card.new(Card.Suits.HEART, 9),
+	]
+	
+	Scoring.new(straight_flush)
+	

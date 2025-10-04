@@ -10,6 +10,10 @@ class_name Scoring
 ### returns a scoring object for comparison with other scoring objects
 ###
 
+
+# NOTE: To anyone reading this script: I'M SORRY 🥲
+
+
 enum Hands {
 	STRAIGHT_FLUSH,
 	FOUR_OF_A_KIND,
@@ -159,7 +163,7 @@ func score_full_houses() -> Array[Array]:
 	var three_of_a_kinds = score_three_of_a_kinds()
 	if two_pairs and three_of_a_kinds:
 		for two_pair in two_pairs:
-			assert(len(two_pair) == 2)
+			assert(len(two_pair) == 4)
 			for three_of_a_kind in three_of_a_kinds:
 				assert(len(three_of_a_kind) == 3)
 				var should_break = false
@@ -205,13 +209,20 @@ func score_four_of_a_kinds() -> Array[Array]:
 
 func score_straight_flushes() -> Array[Array]:
 	var straight_flushes: Array[Array] = []
-	var flushes = score_flushes()
-	for flush: Array in flushes:
-		flush.sort_custom(Card.rank_sort)
-		var first_card = flush.get(0)
-		var fifth_card = flush.get(4)
-		if fifth_card.rank - first_card.rank == 4:
-			straight_flushes.append(flush)
+	var straights = score_straights()
+	for straight: Array in straights:
+		var first_suit: Card.Suits = straight[0].suit
+		var second_suit: Card.Suits = straight[1].suit
+		var third_suit: Card.Suits = straight[2].suit
+		var fourth_suit: Card.Suits = straight[3].suit
+		var fifth_suit: Card.Suits = straight[4].suit
+		if (
+			first_suit == second_suit and
+			first_suit == third_suit and
+			first_suit == fourth_suit and
+			first_suit == fifth_suit
+		):
+			straight_flushes.append(straight)
 	return straight_flushes
 
 func _init(cards_in_hand: Array[Card]) -> void:
@@ -224,8 +235,10 @@ func _init(cards_in_hand: Array[Card]) -> void:
 	var found_hands: Array[Array] = evaluate_hand_type()
 	var hands_filtered_by_suit: Array[Array] = filter_suits(found_hands)
 	var final_hand: Array = filter_ranks(hands_filtered_by_suit)
-	best_rank = get_best_rank(final_hand)
 	best_suit = get_best_suit(final_hand)
+	best_rank = get_best_rank(final_hand)
+	print("Found best suit: " + str(best_suit))
+	print("Found best rank: " + str(best_rank))
 
 func evaluate_hand_type() -> Array[Array]:
 	print(cards.map(func (card): return str(card.suit) + ", " + str(card.rank)))
@@ -282,7 +295,7 @@ func get_best_rank(hand: Array) -> int:
 	hand.sort_custom(Card.rank_sort)
 	return hand[0].rank
 
-func score_ranks(hand: Array[Card]) -> int:
+func score_ranks(hand: Array) -> int:
 	var min_rank: int = 100_000
 	for card in hand:
 		if card.rank < min_rank:
