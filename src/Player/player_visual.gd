@@ -6,7 +6,7 @@ const CARD: PackedScene = preload("uid://dq5coxtle62he")
 @onready var card_holder: Node3D = $CardHolder
 @onready var rotation_goal = rotation
 
-var hand: Array = []
+var hand: Array[CardVisual] = []
 const FIXED_X_DEG: float = deg_to_rad(-18.0)
 
 func _ready() -> void:
@@ -30,10 +30,10 @@ func show_cards():
 	card_holder.visible = true
 	
 func display_cards(cards: Array[Card]):
-	if cards.size() == 0:
-		return
+	hide_cards()
 	for i in range(hand.size()):
-		pass #hand[i].display(cards[i])
+		hand[i].display(cards[i].rank, cards[i].suit)
+	show_cards()
 	
 func clear_hand():
 	for c in hand:
