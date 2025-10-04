@@ -89,3 +89,4 @@ transform = Transform3D(1, 0, 0, 0, 0.9510565, 0.30901697, 0, -0.30901697, 0.951
 [node name="SoundManager" parent="." instance=ExtResource("7_272bh")]
 
 [node name="TurnManager" parent="." instance=ExtResource("8_5vw27")]
+hand_size = 2

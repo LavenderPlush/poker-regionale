@@ -11,7 +11,7 @@ class_name Scoring
 ###
 
 
-# NOTE: To anyone reading this script: I'M SORRY 🥲
+# NOTE: To anyone reading this script: I'M SORRY 🥲 - Benjamin
 
 
 enum Hands {
@@ -34,6 +34,8 @@ var cards_suit_sorted: Array[Card]
 var hand_type: Hands
 var best_suit: Card.Suits
 var best_rank: int
+var score: int = 0
+
 
 func get_score_function(hand: Hands) -> Array[Array]:
 	match hand:
@@ -93,7 +95,7 @@ func score_two_pair() -> Array[Array]:
 	if pairs.size() >= 2:
 		for i in range(len(pairs)):
 			for j in range(i + 1, len(pairs)):
-				var two_pair = pairs[i]
+				var two_pair = pairs[i].duplicate(true)
 				two_pair.append_array(pairs[j])
 				assert(len(two_pair) == 4)
 				two_pairs.append(two_pair)
@@ -159,25 +161,26 @@ func score_flushes() -> Array[Array]:
 
 func score_full_houses() -> Array[Array]:
 	var full_houses: Array[Array] = []
-	var two_pairs = score_two_pair()
+	var pairs = score_one_pair()
 	var three_of_a_kinds = score_three_of_a_kinds()
-	if two_pairs and three_of_a_kinds:
-		for two_pair in two_pairs:
-			assert(len(two_pair) == 4)
+	if pairs and three_of_a_kinds:
+		for pair in pairs:
+			assert(len(pair) == 2)
 			for three_of_a_kind in three_of_a_kinds:
 				assert(len(three_of_a_kind) == 3)
-				var should_break = false
-				for two_pair_card: Card in two_pair:
+				var is_overlapping = false
+				for pair_card: Card in pair:
 					for three_of_a_kind_card: Card in three_of_a_kind:
-						if two_pair_card.equals(three_of_a_kind_card):
-							should_break = true
-							var full_house = two_pair.duplicate()
-							full_house.append_array(three_of_a_kind)
-							assert(len(full_house) == 5)
-							full_houses.append(full_house)
+						if pair_card.equals(three_of_a_kind_card):
+							is_overlapping = true
 							break
-					if should_break:
+					if is_overlapping:
 						break
+				if not is_overlapping:
+					var full_house = pair.duplicate(true)
+					full_house.append_array(three_of_a_kind)
+					assert(len(full_house) == 5)
+					full_houses.append(full_house)
 	return full_houses
 
 
@@ -226,7 +229,7 @@ func score_straight_flushes() -> Array[Array]:
 	return straight_flushes
 
 func _init(cards_in_hand: Array[Card]) -> void:
-	cards = cards_in_hand
+	cards = cards_in_hand.duplicate(true)
 	cards_rank_sorted = cards.duplicate_deep()
 	cards_rank_sorted.sort_custom(Card.rank_sort)
 	cards_suit_sorted = cards.duplicate_deep()
@@ -239,6 +242,8 @@ func _init(cards_in_hand: Array[Card]) -> void:
 	best_rank = get_best_rank(final_hand)
 	print("Found best suit: " + str(best_suit))
 	print("Found best rank: " + str(best_rank))
+	
+	score = (20 - hand_type) * 1000 + best_suit * 100 + best_rank
 
 func evaluate_hand_type() -> Array[Array]:
 	print(cards.map(func (card): return str(card.suit) + ", " + str(card.rank)))

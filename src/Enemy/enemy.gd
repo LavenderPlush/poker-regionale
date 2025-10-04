@@ -10,6 +10,7 @@ var hand: Array[Card]
 
 func play_turn():
 	table_manager.check(id)
+	await get_tree().create_timer(2).timeout
 	end_turn.emit()
 
 func fold():

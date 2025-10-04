@@ -17,7 +17,7 @@ func show_card(card_data: Card):
 	assert(current_card < positions.size())
 	var card: CardVisual = CARD.instantiate()
 	# Use card given instead
-	card.display(card_data.suit, card_data.rank)
+	card.display(card_data.rank, card_data.suit)
 	cards_played.append(card)
 	add_child(card)
 	card.position = positions[current_card]
