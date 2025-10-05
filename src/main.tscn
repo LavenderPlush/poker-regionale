@@ -48,7 +48,7 @@ spot_attenuation = 1.5
 script = ExtResource("2_kek77")
 
 [node name="FlickerTimer" type="Timer" parent="Furniture/Lamp"]
-wait_time = 10.0
+wait_time = 15.0
 autostart = true
 
 [node name="Chair1" type="CSGBox3D" parent="Furniture"]

@@ -10,6 +10,7 @@ class_name Player
 @onready var current_bet: Label = $UI/Control/VBoxContainer/CurrentBet
 @onready var buttons: HBoxContainer = $UI/Control/VBoxContainer/Buttons
 @onready var voice_player: AudioStreamPlayer = $VoicePlayer
+@onready var skip_intro_button: Button = $UI/Control/SkipIntroButton
 
 const SADAN = preload("uid://bs1ulvn3oldnb")
 const SA_FOR_FANDEN = preload("uid://b7iu2awcx153s")
