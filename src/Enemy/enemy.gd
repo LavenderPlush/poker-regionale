@@ -11,6 +11,20 @@ const NPC_1_GOD_DAMN = preload("uid://cm8afofxa3x5d")
 const NPC_1_RAISE = preload("uid://dut8vp3tifvvt")
 const NPC_1_WIN = preload("uid://cmipqfi2umtsr")
 
+const NPC_2_CALL = preload("uid://di1uymvoieprj")
+const NPC_2_CHECK = preload("uid://buwwct8hc1l7y")
+const NPC_2_FOLD = preload("uid://co1ojxjjrnbw3")
+const NPC_2_GOD_DAMN = preload("uid://0bnor4p074n")
+const NPC_2_RAISE = preload("uid://l1vp4apxqtfi")
+const NPC_2_WIN = preload("uid://376r4ymavhke")
+
+const NPC_3_CALL = preload("uid://oi8rld7g7ya5")
+const NPC_3_CHECK = preload("uid://csiu7aaq4hacq")
+const NPC_3_FOLD = preload("uid://dhmdql5bsngr7")
+const NPC_3_GOD_DAMN = preload("uid://do56qmp7gp1i0")
+const NPC_3_RAISE = preload("uid://bftpymsyvh4la")
+const NPC_3_WIN = preload("uid://cyialc73mkqg8")
+
 signal end_turn
 
 var hand: Array[Card]
