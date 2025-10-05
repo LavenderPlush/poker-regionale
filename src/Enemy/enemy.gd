@@ -16,8 +16,11 @@ signal end_turn
 var hand: Array[Card]
 @export var id: int
 
+var behaviour: Callable = random_raise
+
 func play_turn():
-	check()
+	behaviour.call()
+	
 	await get_tree().create_timer(2).timeout
 	end_turn.emit()
 
@@ -30,6 +33,12 @@ func fold():
 	enemy_visual.hide_cards()
 	table_manager.fold(id)
 
+func call_bet():
+	table_manager.call_bet(id)
+
+func raise(amount: int):
+	table_manager.raise(id, amount)
+
 # Used from outside
 func draw_cards(amount: int):
 	for i in range(amount):
@@ -38,3 +47,28 @@ func draw_cards(amount: int):
 
 func hide_hand():
 	enemy_visual.hide_cards()
+
+
+
+# AIs
+
+func always_check():
+	if table_manager.table_chips[id] == table_manager.current_bet:
+		check()
+	else:
+		call_bet()
+
+func random_raise():
+	var max_bet = 20
+	var raise_chance = 0.3
+	
+	var difference = table_manager.current_bet - table_manager.table_chips[id]
+	var raise_val = randi() % (max_bet + 1)
+	
+	if raise_val + difference > table_manager.player_chips[id]:
+		fold()
+	elif randf() < raise_chance:
+		table_manager.check(id) # TODO this should not be handled here
+		raise(raise_val)
+	else:
+		call_bet()
