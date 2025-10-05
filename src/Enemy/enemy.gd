@@ -133,6 +133,8 @@ func win_hand():
 func always_check():
 	if table_manager.table_chips[id] == table_manager.current_bet:
 		check()
+	elif table_manager.player_chips[id] < table_manager.current_bet - table_manager.table_chips[id]:
+		fold()
 	else:
 		call_bet()
 
