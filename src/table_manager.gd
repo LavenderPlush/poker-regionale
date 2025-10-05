@@ -15,6 +15,8 @@ var cards_on_table: Array = []
 
 var current_bet: int = 0
 
+var all_in: bool = false
+
 @onready var deck: Deck = Deck.new()
 
 func add_player(id: int):
@@ -31,6 +33,7 @@ func reset_table() -> void:
 	table_visual.reset_cards()
 	cards_on_table = []
 	current_bet = 0
+	all_in = false
 		
 func evaluate_score(hand: Array) -> int:
 	var all_cards = hand.duplicate()
@@ -58,12 +61,18 @@ func check(_player_id: int) -> void:
 
 
 func call_bet(player_id: int) -> void:
-	var difference = current_bet - table_chips[player_id]
-	bet(player_id, difference)
+	if all_in:
+		bet(player_id, player_chips[player_id])
+	else:
+		var difference = current_bet - table_chips[player_id]
+		bet(player_id, difference)
 
 
 func bet(player_id: int, amount: int) -> void:
-	assert(player_chips[player_id] >= amount)
+	var _players_chips = player_chips[player_id]
+	assert(_players_chips >= amount)
+	if amount == _players_chips:
+		all_in = true
 	
 	player_chips[player_id] -= amount
 	table_chips[player_id] += amount
