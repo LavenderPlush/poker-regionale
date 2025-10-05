@@ -87,12 +87,14 @@ func _process(_delta: float) -> void:
 
 func play_turn():
 	if hand:
+		is_active = true
 		match behaviour:
 			0: rainbow_gambler()
 			1: random_raise()
 			2: always_check()
 		
 		await get_tree().create_timer(2).timeout
+		is_active = false
 
 	end_turn.emit()
 
