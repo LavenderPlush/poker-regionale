@@ -35,6 +35,8 @@ func _process(_delta: float) -> void:
 func play_turn():
 	for button in buttons.get_children():
 		button.disabled = false
+	if table_manager.player_chips[id] > 0 and table_manager.current_bet > table_manager.table_chips[id]:
+		buttons.get_child(1).disabled = true
 
 func _end_turn():
 	for button in buttons.get_children():
@@ -52,7 +54,7 @@ func hide_hand():
 	player_visuals.hide_cards()
 
 func win_hand():
-	pass
+	play_voice_line(SADAN)
 
 # Signals
 func _on_call_pressed() -> void:

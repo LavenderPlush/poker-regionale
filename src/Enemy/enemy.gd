@@ -115,9 +115,7 @@ func hide_hand():
 	enemy_visual.hide_cards()
 
 func win_hand():
-	enemy_visual.audio_stream_player_3d.stream = NPC_1_WIN
-	enemy_visual.audio_stream_player_3d.play()
-	await enemy_visual.audio_stream_player_3d.finished
+	enemy_visual.play_voice_line(win_lines[id])
 
 # AIs
 

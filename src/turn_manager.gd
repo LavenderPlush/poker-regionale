@@ -32,8 +32,10 @@ func _on_intro_monologue_finished() -> void:
 
 func _new_round() -> void:
 	_evaluate_players()
+	active_players = []
+	active_players = players.duplicate()
 	table_manager.deck = Deck.new()
-	_distribute_cards()
+	await _distribute_cards()
 	big_blind_player = (big_blind_player + 1)
 	if big_blind_player >= active_players.size():
 		big_blind_player = big_blind_player % active_players.size()
@@ -50,7 +52,6 @@ func _evaluate_players():
 			players_to_remove.append(player)
 	for player in players_to_remove:
 		players.remove_at(players.find(player))
-		active_players.remove_at(active_players.find(player))
 		if player.id <= big_blind_player:
 			big_blind_player -= 1
 
@@ -89,6 +90,7 @@ func _end_round() -> void:
 			highest_scorer = player
 			highest_score = score
 	table_manager.move_winnings(highest_scorer.id)
+	highest_scorer.win_hand()
 	initialize_round()
 
 func initialize_round():
@@ -98,8 +100,10 @@ func initialize_round():
 	for player in active_players:
 		player.hide_hand()
 	table_manager.reset_table()
+	_new_round()
 
 func _next_turn() -> void:
+	await get_tree().create_timer(1).timeout
 	player_turn = (player_turn + 1) % active_players.size()
 	var current_player = active_players[player_turn]
 	if current_player.id == player_raised:
@@ -113,7 +117,8 @@ func _on_end_turn():
 
 func _on_player_folded(id: int):
 	var player = active_players.filter(func (p): return p.id == id)
-	active_players.remove_at(active_players.find(player))
+	player[0].hide_hand()
+	active_players.remove_at(active_players.find(player[0]))
 
 func _on_player_raised(id: int):
 	player_raised = id
