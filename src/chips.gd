@@ -9,8 +9,8 @@ class_name Chips
 @onready var label_3d: Label3D = $Label3D
 
 const MAX_THRESHOLD: int = 80
-const MID_THRESHOLD: int = 50
-const MIN_THRESHOLD: int = 20
+const MID_THRESHOLD: int = 40
+const MIN_THRESHOLD: int = 1
 
 func _process(_delta: float) -> void:
 	var player_chips = table_manager.player_chips[enemy.id]
