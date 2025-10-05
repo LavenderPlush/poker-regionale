@@ -9,6 +9,7 @@ const SHUFFLE = preload("uid://1u581tbdonsr")
 @onready var table_manager: TableManager = $TableManager
 @onready var players = $Players.get_children()
 @onready var card_sound: AudioStreamPlayer = $CardSound
+@onready var foreigner: Player = $Players/Player
 
 var active_players = []
 
@@ -29,11 +30,14 @@ func _ready() -> void:
 		table_manager.add_player(player.id)
 		player.end_turn.connect(_on_end_turn)
 	SoundManager.get_intro_player().finished.connect(_on_intro_monologue_finished)
-	
-	_new_round()
+	foreigner.skip_intro_button.pressed.connect(_on_skip_intro_button_pressed)
+
+func _on_skip_intro_button_pressed() -> void:
+	SoundManager.get_intro_player().stop()
+	_on_intro_monologue_finished()
 
 func _on_intro_monologue_finished() -> void:
-	pass# _new_round()
+	_new_round()
 
 func _new_round() -> void:
 	_evaluate_players()
