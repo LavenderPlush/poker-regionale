@@ -1,8 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjica7mmofcmg"]
+[gd_scene load_steps=8 format=3 uid="uid://bjica7mmofcmg"]
 
 [ext_resource type="Texture2D" uid="uid://dnwwdsjl8a5wv" path="res://Assets/NPC1_Front.png" id="1_2pb1h"]
 [ext_resource type="Script" uid="uid://bp4us5ijenp4e" path="res://Enemy/enemy_visual.gd" id="2_px1sc"]
 [ext_resource type="PackedScene" uid="uid://dq5coxtle62he" path="res://CardsDisplayed/card.tscn" id="3_am0pq"]
+[ext_resource type="Texture2D" uid="uid://c8e1sf7pivvvq" path="res://Assets/arrow.png" id="4_0fmjy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0fmjy"]
+atlas = ExtResource("4_0fmjy")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbmb4"]
+atlas = ExtResource("4_0fmjy")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xsmyp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0fmjy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbmb4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
 
 [node name="EnemyVisual" type="Sprite3D"]
 texture = ExtResource("1_2pb1h")
@@ -17,3 +40,10 @@ transform = Transform3D(0.2954423, 0.052094452, 0, -0.04895277, 0.27762493, -0.1
 transform = Transform3D(0.2954423, -0.052094456, 0, 0.04895277, 0.27762496, -0.10260604, 0.01781735, 0.101047225, 0.2819078, -0.075, -0.1, 0.175)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+
+[node name="TurnIndicator" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.42376918, 0)
+sprite_frames = SubResource("SpriteFrames_xsmyp")
+autoplay = "default"
+frame = 1
+frame_progress = 0.7306589

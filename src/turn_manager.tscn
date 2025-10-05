@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://oq434q6bsj5d"]
+[gd_scene load_steps=10 format=3 uid="uid://oq434q6bsj5d"]
 
 [ext_resource type="Script" uid="uid://dqp5si1u5s7lm" path="res://turn_manager.gd" id="1_u6owk"]
 [ext_resource type="PackedScene" uid="uid://d0rjl25exdrc" path="res://Player/player.tscn" id="2_qjfnw"]
 [ext_resource type="PackedScene" uid="uid://c5j0vfrkd3hpo" path="res://Enemy/enemy.tscn" id="3_2oaxr"]
 [ext_resource type="PackedScene" uid="uid://bjica7mmofcmg" path="res://Enemy/enemy_visual.tscn" id="4_57va0"]
+[ext_resource type="Texture2D" uid="uid://dmdkij0rnqg1r" path="res://Assets/NPC2_Side.png" id="5_daj33"]
 [ext_resource type="PackedScene" uid="uid://c6lpv1j33d8ng" path="res://table_manager.tscn" id="5_jqd3p"]
 [ext_resource type="PackedScene" uid="uid://bemq3k8ud8iqb" path="res://Player/player_visual.tscn" id="6_2oaxr"]
+[ext_resource type="Texture2D" uid="uid://bd2383c6q6s0l" path="res://Assets/NPC4_Side.png" id="6_nbcv3"]
 [ext_resource type="PackedScene" uid="uid://c1lvskwlnnqul" path="res://chips.tscn" id="7_57va0"]
 
 [node name="TurnManager" type="Node3D"]
@@ -37,7 +39,7 @@ id = 3
 [node name="Enemy" parent="Enemies" instance=ExtResource("4_57va0")]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -0.70164907, 0.54549, -0.51652175)
 texture_filter = 0
-npc_texture = 1
+texture = ExtResource("5_daj33")
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource("4_57va0")]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0.5187818, -1.022917)
@@ -49,14 +51,17 @@ volume_db = -16.001
 [node name="Enemy3" parent="Enemies" instance=ExtResource("4_57va0")]
 transform = Transform3D(0.56568545, 0, -0.56568545, 0, 0.8, 0, 0.56568545, 0, 0.56568545, 0.7445991, 0.53259534, -0.64856094)
 texture_filter = 0
+texture = ExtResource("6_nbcv3")
 flip_sprite = true
-npc_texture = 2
 
 [node name="CardHolder" parent="Enemies/Enemy3" index="0"]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
 
 [node name="AudioStreamPlayer3D" parent="Enemies/Enemy3" index="1"]
 volume_db = -24.984
+
+[node name="TurnIndicator" parent="Enemies/Enemy3" index="2"]
+transform = Transform3D(0.30000004, 0, 0, 0, 0.3, 0, 0, 0, 0.30000004, 0, 0.56074595, 0)
 
 [node name="TableManager" parent="." instance=ExtResource("5_jqd3p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38807106, 0)

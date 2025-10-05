@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bd2383c6q6s0l"
-path.s3tc="res://.godot/imported/NPC4_Side.png-f4a14ea601c7e9b3fe3d12981a6149b4.s3tc.ctex"
+uid="uid://c8e1sf7pivvvq"
+path.s3tc="res://.godot/imported/arrow.png-57f8c059c3343415ea6369e587d21c52.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/NPC4_Side.png"
-dest_files=["res://.godot/imported/NPC4_Side.png-f4a14ea601c7e9b3fe3d12981a6149b4.s3tc.ctex"]
+source_file="res://Assets/arrow.png"
+dest_files=["res://.godot/imported/arrow.png-57f8c059c3343415ea6369e587d21c52.s3tc.ctex"]
 
 [params]
 

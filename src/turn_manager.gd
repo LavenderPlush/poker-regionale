@@ -27,6 +27,11 @@ func _ready() -> void:
 	
 	_new_round()
 
+func _process(_delta: float) -> void:
+	for enemy in players:
+		if enemy is Enemy:
+			(enemy as Enemy).is_active = player_turn == enemy.id
+
 func _on_intro_monologue_finished() -> void:
 	pass# _new_round()
 

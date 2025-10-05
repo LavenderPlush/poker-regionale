@@ -77,9 +77,13 @@ const win_lines = [
 signal end_turn
 
 var hand: Array[Card]
+var is_active: bool = false
 @export var id: int
 
 var behaviour: Callable = rainbow_gambler
+
+func _process(_delta: float) -> void:
+	enemy_visual.turn_indicator.visible = is_active
 
 func play_turn():
 	if hand:
