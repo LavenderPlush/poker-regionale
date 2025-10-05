@@ -80,14 +80,18 @@ var hand: Array[Card]
 var is_active: bool = false
 @export var id: int
 
-var behaviour: Callable = rainbow_gambler
+@export var behaviour: int = 0
 
 func _process(_delta: float) -> void:
 	enemy_visual.turn_indicator.visible = is_active
 
 func play_turn():
 	if hand:
-		behaviour.call()
+		match behaviour:
+			0: rainbow_gambler()
+			1: random_raise()
+			2: always_check()
+		
 		await get_tree().create_timer(2).timeout
 
 	end_turn.emit()

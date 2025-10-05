@@ -28,11 +28,13 @@ id = 1
 enemy_visual = NodePath("../../Enemies/Enemy2")
 table_manager = NodePath("../../TableManager")
 id = 2
+behaviour = 1
 
 [node name="Enemy3" parent="Players" node_paths=PackedStringArray("enemy_visual", "table_manager") instance=ExtResource("3_2oaxr")]
 enemy_visual = NodePath("../../Enemies/Enemy3")
 table_manager = NodePath("../../TableManager")
 id = 3
+behaviour = 2
 
 [node name="Enemies" type="Node" parent="."]
 
@@ -59,9 +61,6 @@ transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
 
 [node name="AudioStreamPlayer3D" parent="Enemies/Enemy3" index="1"]
 volume_db = -24.984
-
-[node name="TurnIndicator" parent="Enemies/Enemy3" index="2"]
-transform = Transform3D(0.30000004, 0, 0, 0, 0.3, 0, 0, 0, 0.30000004, 0, 0.56074595, 0)
 
 [node name="TableManager" parent="." instance=ExtResource("5_jqd3p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38807106, 0)
