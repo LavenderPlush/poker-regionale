@@ -4,6 +4,7 @@ extends Node3D
 
 @onready var table_manager: TableManager = $TableManager
 @onready var players = $Players.get_children()
+@onready var card_sound: AudioStreamPlayer = $CardSound
 
 var active_players = []
 
@@ -26,11 +27,6 @@ func _ready() -> void:
 	SoundManager.get_intro_player().finished.connect(_on_intro_monologue_finished)
 	
 	_new_round()
-
-func _process(_delta: float) -> void:
-	for enemy in players:
-		if enemy is Enemy:
-			(enemy as Enemy).is_active = player_turn == enemy.id
 
 func _on_intro_monologue_finished() -> void:
 	pass# _new_round()

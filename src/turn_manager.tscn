@@ -84,6 +84,8 @@ transform = Transform3D(0.15010068, 0, -0.13217333, 0, 0.2, 0, 0.13217333, 0, 0.
 table_manager = NodePath("../TableManager")
 enemy = NodePath("../Players/Enemy3")
 
+[node name="CardSound" type="AudioStreamPlayer" parent="."]
+
 [editable path="Enemies/Enemy"]
 [editable path="Enemies/Enemy2"]
 [editable path="Enemies/Enemy3"]

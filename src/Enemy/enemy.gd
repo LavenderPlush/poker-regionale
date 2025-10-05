@@ -87,8 +87,10 @@ func _process(_delta: float) -> void:
 
 func play_turn():
 	if hand:
+		is_active = true
 		behaviour.call()
 		await get_tree().create_timer(2).timeout
+		is_active = false
 
 	end_turn.emit()
 
