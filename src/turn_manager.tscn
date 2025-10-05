@@ -43,6 +43,9 @@ npc_texture = 1
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0.5187818, -1.022917)
 texture_filter = 0
 
+[node name="AudioStreamPlayer3D" parent="Enemies/Enemy2" index="1"]
+volume_db = -16.001
+
 [node name="Enemy3" parent="Enemies" instance=ExtResource("4_57va0")]
 transform = Transform3D(0.56568545, 0, -0.56568545, 0, 0.8, 0, 0.56568545, 0, 0.56568545, 0.7445991, 0.53259534, -0.64856094)
 texture_filter = 0
@@ -51,6 +54,9 @@ npc_texture = 2
 
 [node name="CardHolder" parent="Enemies/Enemy3" index="0"]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
+
+[node name="AudioStreamPlayer3D" parent="Enemies/Enemy3" index="1"]
+volume_db = -24.984
 
 [node name="TableManager" parent="." instance=ExtResource("5_jqd3p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38807106, 0)
@@ -73,4 +79,6 @@ transform = Transform3D(0.15010068, 0, -0.13217333, 0, 0.2, 0, 0.13217333, 0, 0.
 table_manager = NodePath("../TableManager")
 enemy = NodePath("../Players/Enemy3")
 
+[editable path="Enemies/Enemy"]
+[editable path="Enemies/Enemy2"]
 [editable path="Enemies/Enemy3"]
