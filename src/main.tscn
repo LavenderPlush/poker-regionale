@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://gshkfkveg71n"]
+[gd_scene load_steps=11 format=3 uid="uid://gshkfkveg71n"]
 
 [ext_resource type="Material" uid="uid://dcsb7mtpd7t1m" path="res://Assets/chair_material.tres" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://buhm2heujo3c8" path="res://Assets/pizza.png" id="2_7mycd"]
+[ext_resource type="Script" uid="uid://snblnc2edta8" path="res://lamp.gd" id="2_kek77"]
 [ext_resource type="PackedScene" uid="uid://bemq3k8ud8iqb" path="res://Player/player_visual.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://biu8fchhx0vae" path="res://Assets/textured_table.glb" id="4_kek77"]
 [ext_resource type="Texture2D" uid="uid://lnawd32xm3w2" path="res://Assets/italian-flag.png" id="7_5vw27"]
@@ -44,6 +45,11 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1
 light_energy = 5.0
 shadow_enabled = true
 spot_attenuation = 1.5
+script = ExtResource("2_kek77")
+
+[node name="FlickerTimer" type="Timer" parent="Furniture/Lamp"]
+wait_time = 10.0
+autostart = true
 
 [node name="Chair1" type="CSGBox3D" parent="Furniture"]
 transform = Transform3D(0.64278764, 0, 0.76604444, 0, 1, 0, -0.76604444, 0, 0.64278764, -0.83702815, 0.2, -0.69256437)
@@ -109,3 +115,5 @@ size = Vector3(3, 0.1, 3)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05039102, 0)
 size = Vector3(3, 0.1, 3)
 material = SubResource("StandardMaterial3D_5vw27")
+
+[connection signal="timeout" from="Furniture/Lamp/FlickerTimer" to="Furniture/Lamp" method="_on_flicker_timer_timeout"]

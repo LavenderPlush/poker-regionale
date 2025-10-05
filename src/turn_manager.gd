@@ -2,6 +2,10 @@ extends Node3D
 
 @export var hand_size: int = 2
 
+const FLIP_CARD = preload("uid://d2xiep37h24y")
+const FLIP_CARD_SINGLE = preload("uid://cqrlraq13ndsf")
+const SHUFFLE = preload("uid://1u581tbdonsr")
+
 @onready var table_manager: TableManager = $TableManager
 @onready var players = $Players.get_children()
 @onready var card_sound: AudioStreamPlayer = $CardSound
@@ -36,13 +40,15 @@ func _new_round() -> void:
 	active_players = []
 	active_players = players.duplicate()
 	table_manager.deck = Deck.new()
+	card_sound.stream = SHUFFLE
+	card_sound.play()
 	await _distribute_cards()
 	big_blind_player = (big_blind_player + 1)
 	if big_blind_player >= active_players.size():
 		big_blind_player = big_blind_player % active_players.size()
 	player_raised = big_blind_player
 	_next_turn()
-	
+
 func _evaluate_players():
 	var players_to_remove = []
 	for player in active_players:
@@ -60,13 +66,23 @@ func _distribute_cards():
 	for player in active_players:
 		await get_tree().create_timer(1).timeout
 		player.draw_cards(hand_size)
+		card_sound.stream = FLIP_CARD_SINGLE
+		card_sound.play()
 		
 func _next_phase():
 	match phase:
 		0: pass # Distribute cards
-		1: table_manager.turn_cards(3)
-		2: table_manager.turn_cards(1)
+		1:
+			card_sound.stream = FLIP_CARD
+			card_sound.play()
+			table_manager.turn_cards(3)
+		2:
+			card_sound.stream = FLIP_CARD
+			card_sound.play()
+			table_manager.turn_cards(1)
 		3: 
+			card_sound.stream = FLIP_CARD
+			card_sound.play()
 			table_manager.turn_cards(1)
 		4:
 			var hearts = 0
@@ -76,6 +92,8 @@ func _next_phase():
 				elif card.suit == Card.Suits.SPADE:
 					hearts -= 1
 			if hearts < 0:
+				card_sound.stream = FLIP_CARD
+				card_sound.play()
 				table_manager.turn_cards(1)
 			else:
 				_end_round()
