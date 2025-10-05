@@ -31,6 +31,10 @@ func _ready() -> void:
 	show_cardbacks()
 	hide_cards()
 
+func play_voice_line(stream) -> void:
+	audio_stream_player_3d.stream = stream
+	audio_stream_player_3d.play()
+
 func hide_cards():
 	card_holder.visible = false
 

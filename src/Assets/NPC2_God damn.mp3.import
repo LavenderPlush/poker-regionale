@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://0bnor4p074n"
+path="res://.godot/imported/NPC2_God damn.mp3-d415a527aa80f6d562c9b365b3b115f4.mp3str"
+
+[deps]
+
+source_file="res://Assets/NPC2_God damn.mp3"
+dest_files=["res://.godot/imported/NPC2_God damn.mp3-d415a527aa80f6d562c9b365b3b115f4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
