@@ -9,6 +9,18 @@ class_name Player
 @onready var money: Label = $UI/Control/Money
 @onready var current_bet: Label = $UI/Control/VBoxContainer/CurrentBet
 @onready var buttons: HBoxContainer = $UI/Control/VBoxContainer/Buttons
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+
+const SADAN = preload("uid://bs1ulvn3oldnb")
+const SA_FOR_FANDEN = preload("uid://b7iu2awcx153s")
+const RILANCIO = preload("uid://sqnxwaxffmu1")
+const BUSSO = preload("uid://nrlkit311aq0")
+const CHIAMO = preload("uid://b0mdi3h4xx03f")
+const PASSO = preload("uid://dmqcn7dexlnv0")
+
+func play_voice_line(line) -> void:
+	audio_stream_player.stream = line
+	audio_stream_player.play()
 
 var _current_bet: int = 0
 
@@ -27,6 +39,7 @@ func play_turn():
 func _end_turn():
 	for button in buttons.get_children():
 		button.disabled = true
+	await get_tree().create_timer(2).timeout
 	end_turn.emit()
 
 # Called from outside
@@ -45,21 +58,22 @@ func win_hand():
 func _on_call_pressed() -> void:
 	table_manager.call_bet(id)
 	_end_turn()
-
+	play_voice_line(CHIAMO)
 
 func _on_check_pressed() -> void:
 	table_manager.check(id)
 	_end_turn()
-
+	play_voice_line(BUSSO)
 
 func _on_raise_pressed() -> void:
 	table_manager.raise(id, _current_bet)
 	_end_turn()
-
+	play_voice_line(RILANCIO)
 
 func _on_fold_pressed() -> void:
 	table_manager.fold(id)
 	_end_turn()
+	play_voice_line(PASSO)
 
 
 func _on_bet_value_changed(value: float) -> void:
