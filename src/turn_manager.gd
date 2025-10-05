@@ -34,6 +34,7 @@ func _ready() -> void:
 
 func _on_skip_intro_button_pressed() -> void:
 	SoundManager.get_intro_player().stop()
+	foreigner.skip_intro_button.hide()
 	_on_intro_monologue_finished()
 
 func _on_intro_monologue_finished() -> void:
