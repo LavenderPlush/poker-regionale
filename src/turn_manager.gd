@@ -43,6 +43,8 @@ func _new_round() -> void:
 func _evaluate_players():
 	var players_to_remove = []
 	for player in active_players:
+		# Play lose sounds for players
+		# Lose screen if player being removed is player
 		var money = table_manager.player_chips[player.id]
 		if money <= 0:
 			players_to_remove.append(player)
@@ -93,6 +95,9 @@ func initialize_round():
 	player_raised = -1
 	phase = 0
 	active_players = players.duplicate()
+	for player in active_players:
+		player.hide_hand()
+	table_manager.reset_table()
 
 func _next_turn() -> void:
 	player_turn = (player_turn + 1) % active_players.size()

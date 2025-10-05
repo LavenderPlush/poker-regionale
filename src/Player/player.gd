@@ -38,6 +38,9 @@ func draw_cards(amount: int):
 func hide_hand():
 	player_visuals.hide_cards()
 
+func win_hand():
+	pass
+
 # Signals
 func _on_call_pressed() -> void:
 	table_manager.call_bet(id)
