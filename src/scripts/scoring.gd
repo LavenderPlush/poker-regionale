@@ -17,12 +17,12 @@ class_name Scoring
 enum Hands {
 	STRAIGHT_FLUSH,
 	FOUR_OF_A_KIND,
-	RAINBOW_FLUSH, # CUSTOM
 	FULL_HOUSE,
 	FLUSH,
 	STRAIGHT,
 	THREE_OF_A_KIND,
 	TWO_PAIR,
+	RAINBOW_FLUSH, # CUSTOM
 	ONE_PAIR,
 	HIGH_CARD,
 }
@@ -43,8 +43,6 @@ func get_score_function(hand: Hands) -> Array[Array]:
 			return score_straight_flushes()
 		Hands.FOUR_OF_A_KIND:
 			return score_four_of_a_kinds()
-		Hands.RAINBOW_FLUSH:
-			return score_rainbow_flushes()
 		Hands.FULL_HOUSE:
 			return score_full_houses()
 		Hands.FLUSH:
@@ -55,6 +53,8 @@ func get_score_function(hand: Hands) -> Array[Array]:
 			return score_three_of_a_kinds()
 		Hands.TWO_PAIR:
 			return score_two_pair()
+		Hands.RAINBOW_FLUSH:
+			return score_rainbow_flushes()
 		Hands.ONE_PAIR:
 			return score_one_pair()
 		Hands.HIGH_CARD:
