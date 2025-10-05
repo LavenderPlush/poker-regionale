@@ -16,12 +16,13 @@ signal end_turn
 var hand: Array[Card]
 @export var id: int
 
-var behaviour: Callable = random_raise
+var behaviour: Callable = rainbow_gambler
 
 func play_turn():
-	behaviour.call()
-	
-	await get_tree().create_timer(2).timeout
+	if hand:
+		behaviour.call()
+		await get_tree().create_timer(2).timeout
+
 	end_turn.emit()
 
 func check() -> void:
@@ -68,10 +69,26 @@ func random_raise():
 	var difference = table_manager.current_bet - table_manager.table_chips[id]
 	var raise_val = randi() % (max_bet + 1)
 	
-	if raise_val + difference > table_manager.player_chips[id]:
+	if difference > table_manager.player_chips[id]:
 		fold()
-	elif randf() < raise_chance:
+	elif randf() < raise_chance and difference + raise_val:
 		table_manager.check(id) # TODO this should not be handled here
 		raise(raise_val)
 	else:
 		call_bet()
+
+func rainbow_gambler():
+	var raise_val = 40
+	if hand[0].suit == hand[1].suit:
+		fold()
+	else:
+		var difference = table_manager.current_bet - table_manager.table_chips[id]
+		if table_manager.current_bet < 40 and table_manager.player_chips[id] >= 40 + difference:
+			table_manager.check(id)
+			raise(raise_val)
+		elif difference == 0:
+			check()
+		elif difference <= table_manager.player_chips[id]:
+			call_bet()
+		else:
+			fold()
