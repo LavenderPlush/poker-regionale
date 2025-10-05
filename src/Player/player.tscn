@@ -65,6 +65,8 @@ offset_bottom = 49.0
 theme_override_font_sizes/font_size = 27
 text = "0"
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [connection signal="pressed" from="UI/Control/VBoxContainer/Buttons/Call" to="." method="_on_call_pressed"]
 [connection signal="pressed" from="UI/Control/VBoxContainer/Buttons/Check" to="." method="_on_check_pressed"]
 [connection signal="pressed" from="UI/Control/VBoxContainer/Buttons/Fold" to="." method="_on_fold_pressed"]
