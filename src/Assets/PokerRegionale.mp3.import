@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/PokerRegionale.mp3-17425b2908378919d894fbbd8f
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

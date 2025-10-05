@@ -13,4 +13,3 @@ func get_intro_player() -> AudioStreamPlayer:
 
 func _on_intro_player_finished() -> void:
 	AudioServer.set_bus_volume_db(1,0)
-	
