@@ -29,10 +29,14 @@ func _end_turn():
 		button.disabled = true
 	end_turn.emit()
 
+# Called from outside
 func draw_cards(amount: int):
 	for i in range(amount):
 		hand.push_back(table_manager.deck.draw())
 	player_visuals.display_cards(hand.duplicate())
+
+func hide_hand():
+	player_visuals.hide_cards()
 
 # Signals
 func _on_call_pressed() -> void:

@@ -4,27 +4,22 @@ class_name TableVisual
 const CARD: PackedScene = preload("res://CardsDisplayed/card.tscn")
 
 @onready var position_holder: Node3D = $CardPositions
-var positions: Array[Vector3] = []
+var cards: Array[CardVisual] = []
 
 var current_card: int = 0
-var cards_played: Array[CardVisual] = []
 
 func _ready() -> void:
-	for pos in position_holder.get_children():
-		positions.append(pos.position)
+	for c in position_holder.get_children():
+		cards.append(c)
 
 func show_card(card_data: Card):
-	assert(current_card < positions.size())
-	var card: CardVisual = CARD.instantiate()
-	# Use card given instead
-	card.display(card_data.rank, card_data.suit)
-	cards_played.append(card)
-	add_child(card)
-	card.position = positions[current_card]
+	assert(current_card < cards.size())
+	cards[current_card].display(card_data.rank, card_data.suit)
+	cards[current_card].visible = true
 	current_card += 1
-	
+
+# Called from outside
 func reset_cards():
-	for card in cards_played:
-		card.queue_free()
-	cards_played = []
+	for card in cards:
+		card.visible = false
 	current_card = 0

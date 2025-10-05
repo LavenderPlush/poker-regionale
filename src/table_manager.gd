@@ -26,6 +26,11 @@ func turn_cards(_amount: int) -> void:
 		var card = deck.draw()
 		cards_on_table.append(card)
 		table_visual.show_card(card)
+
+func reset_table() -> void:
+	table_visual.reset_cards()
+	cards_on_table = []
+	current_bet = 0
 		
 func evaluate_score(hand: Array) -> int:
 	var all_cards = hand.duplicate()

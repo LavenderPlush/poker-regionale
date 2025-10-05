@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bh4ihxywrl2yh"]
+[gd_scene load_steps=4 format=3 uid="uid://bh4ihxywrl2yh"]
 
 [ext_resource type="Script" uid="uid://cw0kgswk8nxaq" path="res://CardsDisplayed/table_cards.gd" id="1_u6670"]
 [ext_resource type="PackedScene" uid="uid://dsv7ljmwr88et" path="res://Decoratives/deck.tscn" id="2_eivna"]
+[ext_resource type="PackedScene" uid="uid://dq5coxtle62he" path="res://CardsDisplayed/card.tscn" id="3_eivna"]
 
 [node name="TableCards" type="Node3D"]
 script = ExtResource("1_u6670")
@@ -11,20 +12,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0.02, 0)
 
 [node name="CardPositions" type="Node3D" parent="."]
 
-[node name="1" type="Node3D" parent="CardPositions"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.007461965, 0)
+[node name="Card" parent="CardPositions" instance=ExtResource("3_eivna")]
+transform = Transform3D(0.3, 0, 0, 0, -0.05209446, -0.29544234, 0, 0.29544234, -0.05209446, 0, 0.008692667, 0)
+visible = false
 
-[node name="2" type="Node3D" parent="CardPositions"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, 0.007461965, 0)
+[node name="Card2" parent="CardPositions" instance=ExtResource("3_eivna")]
+transform = Transform3D(0.3, 0, 0, 0, -0.05209446, -0.29544234, 0, 0.29544234, -0.05209446, -0.15, 0.008692667, 0)
+visible = false
 
-[node name="3" type="Node3D" parent="CardPositions"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.007461965, 0)
+[node name="Card3" parent="CardPositions" instance=ExtResource("3_eivna")]
+transform = Transform3D(0.3, 0, 0, 0, -0.05209446, -0.29544234, 0, 0.29544234, -0.05209446, -0.3, 0.008692667, 0)
+visible = false
 
-[node name="4" type="Node3D" parent="CardPositions"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0.007461965, 0)
+[node name="Card4" parent="CardPositions" instance=ExtResource("3_eivna")]
+transform = Transform3D(0.3, 0, 0, 0, -0.05209446, -0.29544234, 0, 0.29544234, -0.05209446, -0.45, 0.008692667, 0)
+visible = false
 
-[node name="5" type="Node3D" parent="CardPositions"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0.007461965, 0)
+[node name="Card5" parent="CardPositions" instance=ExtResource("3_eivna")]
+transform = Transform3D(0.3, 0, 0, 0, -0.05209446, -0.29544234, 0, 0.29544234, -0.05209446, -0.6, 0.008692667, 0)
+visible = false
 
-[node name="6" type="Node3D" parent="CardPositions"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 0.007461965, 0)
+[node name="Card6" parent="CardPositions" instance=ExtResource("3_eivna")]
+transform = Transform3D(0.3, 0, 0, 0, -0.05209446, -0.29544234, 0, 0.29544234, -0.05209446, -0.75, 0.008692667, 0)
+visible = false

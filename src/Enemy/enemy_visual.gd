@@ -29,6 +29,7 @@ func _ready() -> void:
 	texture = npc_textures[npc_texture]
 	hand = card_holder.get_children()
 	show_cardbacks()
+	hide_cards()
 
 func hide_cards():
 	card_holder.visible = false
@@ -37,8 +38,10 @@ func show_cards():
 	card_holder.visible = true
 
 func display_cards(cards: Array[Card]):
+	hide_cards()
 	for i in range(hand.size()):
 		hand[i].display(cards[i])
+	show_cards()
 
 func show_cardbacks():
 	show_cards()

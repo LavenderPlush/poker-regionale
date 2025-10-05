@@ -30,7 +30,11 @@ func fold():
 	enemy_visual.hide_cards()
 	table_manager.fold(id)
 
+# Used from outside
 func draw_cards(amount: int):
 	for i in range(amount):
 		hand.append(table_manager.deck.draw())
 	enemy_visual.show_cardbacks()
+
+func hide_hand():
+	enemy_visual.hide_cards()

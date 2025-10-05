@@ -8,4 +8,4 @@ script = ExtResource("1_77r4b")
 table_visual = NodePath("TableCards")
 
 [node name="TableCards" parent="." instance=ExtResource("2_g5xba")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2406094, 0.40611082, 0.00096544623)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2406094, 0.029758662, 0.00096544623)

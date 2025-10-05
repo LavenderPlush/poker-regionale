@@ -28,7 +28,7 @@ func _ready() -> void:
 	_new_round()
 
 func _on_intro_monologue_finished() -> void:
-	pass #_new_round()
+	pass# _new_round()
 
 func _new_round() -> void:
 	_evaluate_players()
@@ -54,14 +54,17 @@ func _evaluate_players():
 
 func _distribute_cards():
 	for player in active_players:
+		await get_tree().create_timer(1).timeout
 		player.draw_cards(hand_size)
 		
 func _next_phase():
 	match phase:
-		0: table_manager.turn_cards(3)
-		1: table_manager.turn_cards(1)
+		0: pass # Distribute cards
+		1: table_manager.turn_cards(3)
 		2: table_manager.turn_cards(1)
-		3:
+		3: 
+			table_manager.turn_cards(1)
+		4:
 			var hearts = 0
 			for card in table_manager.cards_on_table:
 				if card.suit == Card.Suits.HEART:
