@@ -115,6 +115,7 @@ func raise(amount: int):
 
 # Used from outside
 func draw_cards(amount: int):
+	hand = []
 	for i in range(amount):
 		hand.append(table_manager.deck.draw())
 	enemy_visual.show_cardbacks()
@@ -142,7 +143,7 @@ func random_raise():
 	
 	if difference > table_manager.player_chips[id]:
 		fold()
-	elif randf() < raise_chance and difference + raise_val:
+	elif randf() < raise_chance and difference + raise_val <= table_manager.table_chips[id]:
 		table_manager.check(id) # TODO this should not be handled here
 		raise(raise_val)
 	else:

@@ -46,6 +46,7 @@ func _end_turn():
 
 # Called from outside
 func draw_cards(amount: int):
+	hand = []
 	for i in range(amount):
 		hand.push_back(table_manager.deck.draw())
 	player_visuals.display_cards(hand.duplicate())
@@ -68,6 +69,7 @@ func _on_check_pressed() -> void:
 	play_voice_line(BUSSO)
 
 func _on_raise_pressed() -> void:
+	table_manager.call_bet(id)
 	table_manager.raise(id, _current_bet)
 	_end_turn()
 	play_voice_line(RILANCIO)
