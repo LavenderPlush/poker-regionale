@@ -1,6 +1,43 @@
-[gd_scene load_steps=2 format=3 uid="uid://d0rjl25exdrc"]
+[gd_scene load_steps=5 format=3 uid="uid://d0rjl25exdrc"]
 
 [ext_resource type="Script" uid="uid://my77bq50qri0" path="res://Player/player.gd" id="1_l8h54"]
+
+[sub_resource type="Animation" id="Animation_l8h54"]
+resource_name = "fade_in"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4ntmi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_btcbx"]
+_data = {
+&"RESET": SubResource("Animation_4ntmi"),
+&"fade_in": SubResource("Animation_l8h54")
+}
 
 [node name="Player" type="Node3D"]
 script = ExtResource("1_l8h54")
@@ -18,9 +55,9 @@ size_flags_horizontal = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Control"]
 layout_mode = 0
-offset_left = 885.0
+offset_left = 819.0
 offset_top = 555.0
-offset_right = 1138.0
+offset_right = 1076.0
 offset_bottom = 633.0
 
 [node name="CurrentBet" type="Label" parent="UI/Control/VBoxContainer"]
@@ -73,12 +110,28 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 16.0
+offset_left = 65.0
 offset_top = -44.0
-offset_right = 129.0
+offset_right = 178.0
 offset_bottom = -13.0
 grow_vertical = 0
 text = "Skip Dialogue"
+
+[node name="ColorRect" type="ColorRect" parent="UI"]
+self_modulate = Color(0, 0, 0, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AutoFadeIn" type="AnimationPlayer" parent="UI"]
+libraries = {
+&"": SubResource("AnimationLibrary_btcbx")
+}
+autoplay = "fade_in"
 
 [node name="VoicePlayer" type="AudioStreamPlayer" parent="."]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bjica7mmofcmg"]
+[gd_scene load_steps=11 format=3 uid="uid://bjica7mmofcmg"]
 
 [ext_resource type="Texture2D" uid="uid://dnwwdsjl8a5wv" path="res://Assets/NPC1_Front.png" id="1_2pb1h"]
 [ext_resource type="Script" uid="uid://bp4us5ijenp4e" path="res://Enemy/enemy_visual.gd" id="2_px1sc"]
@@ -27,8 +27,44 @@ animations = [{
 "speed": 4.0
 }]
 
-[node name="EnemyVisual" type="Sprite3D"]
-texture = ExtResource("1_2pb1h")
+[sub_resource type="Animation" id="Animation_0fmjy"]
+resource_name = "talk"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemyVisual:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.02, 0), Vector3(0, 0, 0), Vector3(0, 0.02, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tbmb4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemyVisual:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xsmyp"]
+_data = {
+&"RESET": SubResource("Animation_tbmb4"),
+&"talk": SubResource("Animation_0fmjy")
+}
+
+[node name="EnemyVisual" type="Node3D"]
 script = ExtResource("2_px1sc")
 
 [node name="CardHolder" type="Node3D" parent="."]
@@ -47,3 +83,12 @@ sprite_frames = SubResource("SpriteFrames_xsmyp")
 autoplay = "default"
 frame = 1
 frame_progress = 0.7306589
+
+[node name="TalkingAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_xsmyp")
+}
+
+[node name="EnemyVisual" type="Sprite3D" parent="."]
+texture_filter = 0
+texture = ExtResource("1_2pb1h")

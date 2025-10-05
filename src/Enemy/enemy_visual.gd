@@ -1,9 +1,11 @@
-extends Sprite3D
+extends Node3D
 class_name EnemyVisual
 
 @onready var card_holder: Node3D = $CardHolder
 @onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
 @onready var turn_indicator: AnimatedSprite3D = $TurnIndicator
+
+@onready var talking_animation: AnimationPlayer = $TalkingAnimation
 
 var hand: Array
 

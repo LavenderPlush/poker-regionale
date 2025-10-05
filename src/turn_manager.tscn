@@ -40,20 +40,18 @@ behaviour = 2
 
 [node name="Enemy" parent="Enemies" instance=ExtResource("4_57va0")]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -0.70164907, 0.54549, -0.51652175)
-texture_filter = 0
+
+[node name="EnemyVisual" parent="Enemies/Enemy" index="4"]
 texture = ExtResource("5_daj33")
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource("4_57va0")]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0.5187818, -1.022917)
-texture_filter = 0
 
 [node name="AudioStreamPlayer3D" parent="Enemies/Enemy2" index="1"]
 volume_db = -16.001
 
 [node name="Enemy3" parent="Enemies" instance=ExtResource("4_57va0")]
 transform = Transform3D(0.56568545, 0, -0.56568545, 0, 0.8, 0, 0.56568545, 0, 0.56568545, 0.7445991, 0.53259534, -0.64856094)
-texture_filter = 0
-texture = ExtResource("6_nbcv3")
 flip_sprite = true
 
 [node name="CardHolder" parent="Enemies/Enemy3" index="0"]
@@ -61,6 +59,9 @@ transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
 
 [node name="AudioStreamPlayer3D" parent="Enemies/Enemy3" index="1"]
 volume_db = -24.984
+
+[node name="EnemyVisual" parent="Enemies/Enemy3" index="4"]
+texture = ExtResource("6_nbcv3")
 
 [node name="TableManager" parent="." instance=ExtResource("5_jqd3p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38807106, 0)
