@@ -30,7 +30,7 @@ var hand: Array[Card] = []
 signal end_turn
 
 func _process(_delta: float) -> void:
-	bet.max_value = table_manager.player_chips[id]
+	bet.max_value = table_manager.player_chips[id] - (table_manager.current_bet - table_manager.table_chips[id])
 	money.text = str(table_manager.player_chips[id]) + "€"
 
 func play_turn():
