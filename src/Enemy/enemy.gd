@@ -149,7 +149,7 @@ func random_raise():
 		call_bet()
 
 func rainbow_gambler():
-	var raise_val = 40
+	var raise_val = randi() % 41
 	if hand[0].suit == hand[1].suit:
 		fold()
 	else:
