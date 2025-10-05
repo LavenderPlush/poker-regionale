@@ -23,7 +23,7 @@ offset_bottom = 633.0
 [node name="CurrentBet" type="Label" parent="UI/Control/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
-text = "0"
+text = "5€"
 
 [node name="Buttons" type="HBoxContainer" parent="UI/Control/VBoxContainer"]
 layout_mode = 2
@@ -65,7 +65,7 @@ offset_bottom = 49.0
 theme_override_font_sizes/font_size = 27
 text = "0"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="VoicePlayer" type="AudioStreamPlayer" parent="."]
 
 [connection signal="pressed" from="UI/Control/VBoxContainer/Buttons/Call" to="." method="_on_call_pressed"]
 [connection signal="pressed" from="UI/Control/VBoxContainer/Buttons/Check" to="." method="_on_check_pressed"]

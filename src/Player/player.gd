@@ -9,7 +9,7 @@ class_name Player
 @onready var money: Label = $UI/Control/Money
 @onready var current_bet: Label = $UI/Control/VBoxContainer/CurrentBet
 @onready var buttons: HBoxContainer = $UI/Control/VBoxContainer/Buttons
-@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var voice_player: AudioStreamPlayer = $VoicePlayer
 
 const SADAN = preload("uid://bs1ulvn3oldnb")
 const SA_FOR_FANDEN = preload("uid://b7iu2awcx153s")
@@ -19,10 +19,10 @@ const CHIAMO = preload("uid://b0mdi3h4xx03f")
 const PASSO = preload("uid://dmqcn7dexlnv0")
 
 func play_voice_line(line) -> void:
-	audio_stream_player.stream = line
-	audio_stream_player.play()
+	voice_player.stream = line
+	voice_player.play()
 
-var _current_bet: int = 0
+var _current_bet: int = 5
 
 var hand: Array[Card] = []
 
